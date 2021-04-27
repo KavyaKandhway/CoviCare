@@ -1,7 +1,7 @@
+import 'package:covicare/screens/sections.dart';
 import 'package:flutter/material.dart';
 
 import 'helpers/google_auth.dart';
-import 'screens/first.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,71 +11,93 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Color(0xFFFF9432),
-            title: Text("CoviCare"),
-          ),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              SizedBox(
+      home: MyHome(),
+    );
+  }
+}
+
+class MyHome extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF9432),
+          title: Text("CoviCare"),
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            Center(
+              child: Image(
+                image: AssetImage('images/logo.png'),
+              ),
+            ),
+            Expanded(
+              child: SizedBox(
                 height: 30,
               ),
-              Center(
-                child: Image(
-                  image: AssetImage('images/logo.png'),
-                ),
+            ),
+            TextButton(
+              onPressed: () {
+                print("Login with email");
+              },
+              style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all<Size>(
+                      Size(MediaQuery.of(context).size.width - 20, 50)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xFFFF9432))),
+              child: Text("Login with Email",
+                  style: TextStyle(color: Colors.black)),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextButton(
+              onPressed: () {
+                print("Login with Phone");
+              },
+              style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all<Size>(
+                      Size(MediaQuery.of(context).size.width - 20, 50)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xFFFF9432))),
+              child: Text(
+                "Login with Phone",
+                style: TextStyle(color: Colors.black),
               ),
-              Expanded(
-                child: SizedBox(
-                  height: 30,
-                ),
-              ),
-              FlatButton(
-                onPressed: () {
-                  print("Login with email");
-                },
-                color: Color(0xFFFF9432),
-                minWidth: 350.0,
-                height: 50.0,
-                child: Text("Login with Email"),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              FlatButton(
-                onPressed: () {
-                  print("Login with Phone");
-                },
-                color: Color(0xFFFF9432),
-                minWidth: 350.0,
-                height: 50.0,
-                child: Text("Login with Phone"),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              FlatButton(
-                onPressed: () {
-                  signInWithGoogle().then((result) {
-                    if (result != null) {
-                      print(result);
-                    }
-                  });
-                },
-                color: Color(0xFFFF9432),
-                minWidth: 350.0,
-                height: 50.0,
-                child: Text("Login with Google"),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextButton(
+              onPressed: () {
+                signInWithGoogle().then((result) {
+                  if (result != null) {
+                    print("ll");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Section()),
+                    );
+                  }
+                });
+              },
+              style: ButtonStyle(
+                  minimumSize: MaterialStateProperty.all<Size>(
+                      Size(MediaQuery.of(context).size.width - 20, 50)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xFFFF9432))),
+              child: Text("Login with Google",
+                  style: TextStyle(color: Colors.black)),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+          ],
         ),
       ),
     );
