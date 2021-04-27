@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'helpers/google_auth.dart';
+import 'screens/first.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -57,7 +60,11 @@ class MyApp extends StatelessWidget {
               ),
               FlatButton(
                 onPressed: () {
-                  print("Login with google");
+                  signInWithGoogle().then((result) {
+                    if (result != null) {
+                      print(result);
+                    }
+                  });
                 },
                 color: Color(0xFFFF9432),
                 minWidth: 350.0,
