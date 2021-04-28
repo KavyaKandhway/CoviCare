@@ -68,7 +68,10 @@ class MyHome extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                print("Login with Phone");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Section()),
+                );
               },
               child: Container(
                 height: 50.0,
