@@ -102,10 +102,10 @@ class LocalInfoCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.cyan[50],
-          border: Border.all(
-            color: Colors.black,
-            width: 1.2,
-          ),
+          // border: Border.all(
+          //   color: Colors.black,
+          //   width: 1.2,
+          // ),
           borderRadius: BorderRadius.all(Radius.circular(5)),
         ),
         child: Padding(
