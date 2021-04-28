@@ -22,8 +22,11 @@ class MyHome extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFFFF9432),
-          title: Text("CoviCare"),
+          backgroundColor: Colors.cyan[100],
+          title: Text(
+            "CoviCare",
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,39 +49,48 @@ class MyHome extends StatelessWidget {
               onPressed: () {
                 print("Login with email");
               },
-              style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all<Size>(
-                      Size(MediaQuery.of(context).size.width - 20, 50)),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Color(0xFFFF9432))),
-              child: Text("Login with Email",
-                  style: TextStyle(color: Colors.black)),
-            ),
-            SizedBox(
-              height: 10,
+              child: Container(
+                height: 50.0,
+                child: Center(
+                  child: Text(
+                    "Login With Email",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 3.2,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                ),
+              ),
             ),
             TextButton(
               onPressed: () {
                 print("Login with Phone");
               },
-              style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all<Size>(
-                      Size(MediaQuery.of(context).size.width - 20, 50)),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Color(0xFFFF9432))),
-              child: Text(
-                "Login with Phone",
-                style: TextStyle(color: Colors.black),
+              child: Container(
+                height: 50.0,
+                child: Center(
+                  child: Text(
+                    "Login With Phone",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 3.2,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 10,
             ),
             TextButton(
               onPressed: () {
                 signInWithGoogle().then((result) {
                   if (result != null) {
-                    print("ll");
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Section()),
@@ -86,13 +98,22 @@ class MyHome extends StatelessWidget {
                   }
                 });
               },
-              style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all<Size>(
-                      Size(MediaQuery.of(context).size.width - 20, 50)),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Color(0xFFFF9432))),
-              child: Text("Login with Google",
-                  style: TextStyle(color: Colors.black)),
+              child: Container(
+                height: 50.0,
+                child: Center(
+                  child: Text(
+                    "Login With Google",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 3.2,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                ),
+              ),
             ),
             SizedBox(
               height: 30,

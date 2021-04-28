@@ -42,44 +42,47 @@ class _SectionPageState extends State<SectionPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xFFFF9432),
+          backgroundColor: Colors.cyan[100],
           leading: IconButton(
             icon: Icon(
               Icons.menu,
+              color: Colors.black,
             ),
           ),
-          title: Text(appheading[_currentIndex]),
+          title: Text(
+            appheading[_currentIndex],
+            style: TextStyle(color: Colors.black),
+          ),
           actions: [
             IconButton(
               icon: Icon(
                 Icons.exit_to_app,
+                color: Colors.black,
               ),
             ),
           ],
         ),
         body: tabs[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Color(0xFFFF9432),
+          backgroundColor: Colors.cyan[100],
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
-                label: 'Home',
                 icon: Icon(
-                  Icons.home,
-                  color: _currentIndex == 0 ? Colors.black : Colors.black38,
-                )),
+              Icons.home,
+              color: _currentIndex == 0 ? Colors.black : Colors.black38,
+            )),
             BottomNavigationBarItem(
-                label: 'Blog',
+                backgroundColor: Colors.black,
                 icon: Icon(
                   Icons.add_comment,
                   color: _currentIndex == 1 ? Colors.black : Colors.black38,
                 )),
             BottomNavigationBarItem(
-                label: 'Medicines',
                 icon: Icon(
-                  Icons.local_grocery_store,
-                  color: _currentIndex == 2 ? Colors.black : Colors.black38,
-                ))
+              Icons.local_grocery_store,
+              color: _currentIndex == 2 ? Colors.black : Colors.black38,
+            ))
           ],
           onTap: (index) {
             setState(() {
