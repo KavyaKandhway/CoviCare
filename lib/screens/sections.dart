@@ -68,21 +68,24 @@ class _SectionPageState extends State<SectionPage> {
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
+                label: 'Home',
                 icon: Icon(
-              Icons.home,
-              color: _currentIndex == 0 ? Colors.black : Colors.black38,
-            )),
+                  Icons.home,
+                  color: _currentIndex == 0 ? Colors.black : Colors.black38,
+                )),
             BottomNavigationBarItem(
+                label: 'Blog',
                 backgroundColor: Colors.black,
                 icon: Icon(
                   Icons.add_comment,
                   color: _currentIndex == 1 ? Colors.black : Colors.black38,
                 )),
             BottomNavigationBarItem(
+                label: 'Local Store',
                 icon: Icon(
-              Icons.local_grocery_store,
-              color: _currentIndex == 2 ? Colors.black : Colors.black38,
-            ))
+                  Icons.local_grocery_store,
+                  color: _currentIndex == 2 ? Colors.black : Colors.black38,
+                ))
           ],
           onTap: (index) {
             setState(() {
