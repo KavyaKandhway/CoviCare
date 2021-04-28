@@ -22,7 +22,7 @@ class MyHome extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.cyan[100],
+          backgroundColor: Colors.cyan[500],
           title: Text(
             "CoviCare",
             style: TextStyle(color: Colors.black),
