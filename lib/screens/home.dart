@@ -1,3 +1,4 @@
+import 'package:covicare/screens/supplyForm.dart';
 import 'package:flutter/material.dart';
 import 'package:covicare/InsideHome/needsupplies.dart';
 
@@ -45,7 +46,14 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Expanded(
-                child: HomeCard(data: 'Sell Supplies'),
+                child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SupplyForm()),
+                      );
+                    },
+                    child: HomeCard(data: 'Sell Supplies')),
               )
             ],
           ),
