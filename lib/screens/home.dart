@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
             children: [
               Expanded(
                 child: InkWell(
-                  child: HomeCard(data: 'Need Suplies'),
+                  child: HomeCard(data: 'Need Supplies'),
                   onTap: () {
                     Navigator.push(
                       context,
