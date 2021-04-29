@@ -42,7 +42,7 @@ class _SectionPageState extends State<SectionPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.cyan[100],
+          backgroundColor: Colors.cyan[500],
           leading: IconButton(
             icon: Icon(
               Icons.menu,
@@ -63,35 +63,45 @@ class _SectionPageState extends State<SectionPage> {
           ],
         ),
         body: tabs[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.cyan[100],
-          currentIndex: _currentIndex,
-          items: [
-            BottomNavigationBarItem(
-                label: 'Home',
-                icon: Icon(
-                  Icons.home,
-                  color: _currentIndex == 0 ? Colors.black : Colors.black38,
-                )),
-            BottomNavigationBarItem(
-                label: 'Blog',
-                backgroundColor: Colors.black,
-                icon: Icon(
-                  Icons.add_comment,
-                  color: _currentIndex == 1 ? Colors.black : Colors.black38,
-                )),
-            BottomNavigationBarItem(
-                label: 'Local Store',
-                icon: Icon(
-                  Icons.local_grocery_store,
-                  color: _currentIndex == 2 ? Colors.black : Colors.black38,
-                ))
-          ],
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+              // sets the background color of the `BottomNavigationBar`
+              canvasColor: Colors.green,
+              // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+              primaryColor: Colors.black,
+              textTheme: Theme.of(context)
+                  .textTheme
+                  .copyWith(caption: new TextStyle(color: Colors.yellow))),
+          child: BottomNavigationBar(
+            backgroundColor: Colors.cyan[500],
+            currentIndex: _currentIndex,
+            items: [
+              BottomNavigationBarItem(
+                  label: 'Home',
+                  icon: Icon(
+                    Icons.home,
+                    color: _currentIndex == 0 ? Colors.black : Colors.black38,
+                  )),
+              BottomNavigationBarItem(
+                  label: 'Blog',
+                  backgroundColor: Colors.black,
+                  icon: Icon(
+                    Icons.add_comment,
+                    color: _currentIndex == 1 ? Colors.black : Colors.black38,
+                  )),
+              BottomNavigationBarItem(
+                  label: 'Local Store',
+                  icon: Icon(
+                    Icons.local_grocery_store,
+                    color: _currentIndex == 2 ? Colors.black : Colors.black38,
+                  ))
+            ],
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+          ),
         ),
       ),
     );
