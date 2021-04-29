@@ -15,7 +15,7 @@ class _SupplyFormState extends State<SupplyForm> {
   TextEditingController address2 = TextEditingController();
   TextEditingController landmark = TextEditingController();
   String countryValue = '', stateValue = '', cityValue = '';
-  bool oxygen = false;
+  bool oxygen = false, favipiravir = false, bed = false, remdesivir = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,6 +30,10 @@ class _SupplyFormState extends State<SupplyForm> {
                   child: Text(
                     "Enter name/name of organization",
                     textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -59,6 +63,10 @@ class _SupplyFormState extends State<SupplyForm> {
                   child: Text(
                     "Enter phone number",
                     textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -89,6 +97,10 @@ class _SupplyFormState extends State<SupplyForm> {
                   child: Text(
                     "Select Location",
                     textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -144,6 +156,10 @@ class _SupplyFormState extends State<SupplyForm> {
                   child: Text(
                     "Enter pincode",
                     textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -174,6 +190,10 @@ class _SupplyFormState extends State<SupplyForm> {
                   child: Text(
                     "Enter Address ",
                     textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -222,6 +242,10 @@ class _SupplyFormState extends State<SupplyForm> {
                   child: Text(
                     "Enter Landmark",
                     textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   width: MediaQuery.of(context).size.width,
                 ),
@@ -248,6 +272,44 @@ class _SupplyFormState extends State<SupplyForm> {
                   height: 10.0,
                 ),
                 Container(
+                  child: Text(
+                    "Select the supplies",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  width: MediaQuery.of(context).size.width,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        child: Text(
+                          "Quantity",
+                        ),
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Container(
+                        child: Text(
+                          "Amt/unit",
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  ),
+                  width: MediaQuery.of(context).size.width,
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
@@ -258,25 +320,61 @@ class _SupplyFormState extends State<SupplyForm> {
                   child: Column(
                     children: [
                       CheckboxListTile(
-                        title: Text("Oxygen"),
-                        secondary: Container(
-                          height: 40,
-                          width: 50,
+                        title: Container(
                           child: Center(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                counterText: "",
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 3.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text("Oxygen Cylinder"),
+                                Expanded(
+                                  child: SizedBox(
+                                    width: 500,
+                                  ),
                                 ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 1.0),
+                                Container(
+                                  width: 60,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  width: 80,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -290,98 +388,206 @@ class _SupplyFormState extends State<SupplyForm> {
                         },
                       ),
                       CheckboxListTile(
-                        title: Text("Beds"),
-                        secondary: Container(
-                          height: 40,
-                          width: 50,
+                        title: Container(
                           child: Center(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                counterText: "",
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 3.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text("Bed"),
+                                Expanded(
+                                  child: SizedBox(
+                                    width: 500,
+                                  ),
                                 ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 1.0),
+                                Container(
+                                  width: 60,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  width: 80,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                        tristate: true,
-                        value: oxygen,
+                        tristate: false,
+                        value: bed,
                         controlAffinity: ListTileControlAffinity.leading,
                         onChanged: (bool value) {
                           setState(() {
-                            oxygen = value;
+                            bed = value;
                           });
                         },
                       ),
                       CheckboxListTile(
-                        title: Text("Remdevisir"),
-                        secondary: Container(
-                          height: 40,
-                          width: 50,
+                        title: Container(
                           child: Center(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                counterText: "",
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 3.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text("Remdesivir"),
+                                Expanded(
+                                  child: SizedBox(
+                                    width: 500,
+                                  ),
                                 ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 1.0),
+                                Container(
+                                  width: 60,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  width: 80,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                         tristate: true,
-                        value: oxygen,
+                        value: remdesivir,
                         controlAffinity: ListTileControlAffinity.leading,
                         onChanged: (bool value) {
                           setState(() {
-                            oxygen = value;
+                            remdesivir = value;
                           });
                         },
                       ),
                       CheckboxListTile(
-                        title: Text("Oxygen"),
-                        secondary: Container(
-                          height: 40,
-                          width: 50,
+                        title: Container(
                           child: Center(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                counterText: "",
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 3.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text("Favipiravir"),
+                                Expanded(
+                                  child: SizedBox(
+                                    width: 500,
+                                  ),
                                 ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.zero,
-                                  borderSide: BorderSide(
-                                      color: Colors.cyan, width: 1.0),
+                                Container(
+                                  width: 60,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  width: 80,
+                                  height: 50,
+                                  child: TextField(
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                      counterText: "",
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 3.0),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(
+                                            color: Colors.cyan, width: 1.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                         tristate: true,
-                        value: oxygen,
+                        value: favipiravir,
                         controlAffinity: ListTileControlAffinity.leading,
                         onChanged: (bool value) {
                           setState(() {
-                            oxygen = value;
+                            favipiravir = value;
                           });
                         },
                       ),
