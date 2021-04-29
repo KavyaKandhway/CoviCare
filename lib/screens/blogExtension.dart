@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:covicare/screens/medicine.dart';
 import 'package:flutter/material.dart';
 
 class BlogExtend extends StatefulWidget {
