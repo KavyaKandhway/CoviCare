@@ -1,3 +1,4 @@
+import 'package:covicare/screens/blogForm.dart';
 import 'package:covicare/screens/storeform.dart';
 import 'package:covicare/screens/supplyForm.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class _HomeState extends State<Home> {
                           MaterialPageRoute(builder: (context) => SupplyForm()),
                         );
                       },
-                      child: HomeCard(data: 'Sell Supplies')),
+                      child: Center(child: HomeCard(data: 'Sell Supplies'))),
                 )
               ],
             ),
@@ -73,9 +74,17 @@ class _HomeState extends State<Home> {
                                 builder: (context) => StoreForm()),
                           );
                         },
-                        child: HomeCard(data: 'Get Vaccinated'))),
+                        child: HomeCard(data: 'Add Local Store'))),
                 Expanded(
-                  child: HomeCard(data: 'Donate'),
+                  child: InkWell(
+                    child: HomeCard(data: 'Add Blog'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BlogForm()),
+                      );
+                    },
+                  ),
                 )
               ],
             ),
