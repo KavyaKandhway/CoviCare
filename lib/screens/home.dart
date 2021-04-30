@@ -12,84 +12,88 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Center(
-                  child: Text(
-                    'How Can we help you?',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      'How Can we help you?',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 5,
-            child: Row(
-              children: [
-                Expanded(
-                  child: InkWell(
-                    child: HomeCard(data: 'Need Supplies'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => NeedSupplies()),
-                      );
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: InkWell(
+            Expanded(
+              flex: 5,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      child: HomeCard(data: 'Need Supplies'),
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SupplyForm()),
+                          MaterialPageRoute(
+                              builder: (context) => NeedSupplies()),
                         );
                       },
-                      child: Center(child: HomeCard(data: 'Sell Supplies'))),
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 5,
-            child: Row(
-              children: [
-                Expanded(
+                    ),
+                  ),
+                  Expanded(
                     child: InkWell(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => StoreForm()),
+                                builder: (context) => SupplyForm()),
                           );
                         },
-                        child: HomeCard(data: 'Add Local Store'))),
-                Expanded(
-                  child: InkWell(
-                    child: HomeCard(data: 'Add Blog'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => BlogForm()),
-                      );
-                    },
-                  ),
-                )
-              ],
+                        child: Center(child: HomeCard(data: 'Sell Supplies'))),
+                  )
+                ],
+              ),
             ),
-          )
-        ],
+            Expanded(
+              flex: 5,
+              child: Row(
+                children: [
+                  Expanded(
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => StoreForm()),
+                            );
+                          },
+                          child: HomeCard(data: 'Add Local Store'))),
+                  Expanded(
+                    child: InkWell(
+                      child: HomeCard(data: 'Add Blog'),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => BlogForm()),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
