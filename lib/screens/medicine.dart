@@ -9,78 +9,80 @@ class Medicine extends StatefulWidget {
 class _MedicineState extends State<Medicine> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 10.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                style: TextStyle(height: 1.0),
-                decoration: InputDecoration(
-                  counterText: "",
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.zero,
-                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  style: TextStyle(height: 1.0),
+                  decoration: InputDecoration(
+                    counterText: "",
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.zero,
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.zero,
+                      borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.zero,
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.zero,
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                    labelText: 'Search',
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.zero,
-                    borderSide: BorderSide(color: Colors.grey, width: 2.0),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.zero,
-                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.zero,
-                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                  ),
-                  labelText: 'Search',
                 ),
               ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  LocalInfoCard(
-                    name: 'ABC Shop',
-                    itemsAvl: 'Soap, Sanitizer',
-                    open: '9 am to 2 pm',
-                  ),
-                  LocalInfoCard(
-                    name: 'ABC Shop',
-                    itemsAvl: 'Soap, Sanitizer',
-                    open: '9 am to 2 pm',
-                  ),
-                  LocalInfoCard(
-                    name: 'ABC Shop',
-                    itemsAvl: 'Soap, Sanitizer',
-                    open: '9 am to 2 pm',
-                  ),
-                  LocalInfoCard(
-                    name: 'ABC Shop',
-                    itemsAvl: 'Soap, Sanitizer',
-                    open: '9 am to 2 pm',
-                  ),
-                  LocalInfoCard(
-                    name: 'ABC Shop',
-                    itemsAvl: 'Soap, Sanitizer',
-                    open: '9 am to 2 pm',
-                  ),
-                  LocalInfoCard(
-                    name: 'ABC Shop',
-                    itemsAvl: 'Soap, Sanitizer',
-                    open: '9 am to 2 pm',
-                  ),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    LocalInfoCard(
+                      name: 'ABC Shop',
+                      itemsAvl: 'Soap, Sanitizer',
+                      open: '9 am to 2 pm',
+                    ),
+                    LocalInfoCard(
+                      name: 'ABC Shop',
+                      itemsAvl: 'Soap, Sanitizer',
+                      open: '9 am to 2 pm',
+                    ),
+                    LocalInfoCard(
+                      name: 'ABC Shop',
+                      itemsAvl: 'Soap, Sanitizer',
+                      open: '9 am to 2 pm',
+                    ),
+                    LocalInfoCard(
+                      name: 'ABC Shop',
+                      itemsAvl: 'Soap, Sanitizer',
+                      open: '9 am to 2 pm',
+                    ),
+                    LocalInfoCard(
+                      name: 'ABC Shop',
+                      itemsAvl: 'Soap, Sanitizer',
+                      open: '9 am to 2 pm',
+                    ),
+                    LocalInfoCard(
+                      name: 'ABC Shop',
+                      itemsAvl: 'Soap, Sanitizer',
+                      open: '9 am to 2 pm',
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
