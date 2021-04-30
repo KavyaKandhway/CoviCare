@@ -20,6 +20,10 @@ class _SupplyFormState extends State<SupplyForm> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Sell/Donate Supplies"),
+          backgroundColor: Colors.cyan[500],
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(

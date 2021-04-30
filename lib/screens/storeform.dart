@@ -25,6 +25,10 @@ class _StoreFormState extends State<StoreForm> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Add Local Store"),
+          backgroundColor: Colors.cyan[500],
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
