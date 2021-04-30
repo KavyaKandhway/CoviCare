@@ -1,3 +1,4 @@
+import 'package:covicare/screens/storeform.dart';
 import 'package:covicare/screens/supplyForm.dart';
 import 'package:flutter/material.dart';
 import 'package:covicare/InsideHome/needsupplies.dart';
@@ -63,7 +64,16 @@ class _HomeState extends State<Home> {
             flex: 5,
             child: Row(
               children: [
-                Expanded(child: HomeCard(data: 'Get Vaccinated')),
+                Expanded(
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StoreForm()),
+                          );
+                        },
+                        child: HomeCard(data: 'Get Vaccinated'))),
                 Expanded(
                   child: HomeCard(data: 'Donate'),
                 )

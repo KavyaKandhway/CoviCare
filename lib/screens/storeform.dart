@@ -15,7 +15,12 @@ class _StoreFormState extends State<StoreForm> {
   TextEditingController address2 = TextEditingController();
   TextEditingController landmark = TextEditingController();
   String countryValue = '', stateValue = '', cityValue = '';
-  bool grocery = false ,medical = false, dairy = false , bakery=false ,homekitchen=false ,personalcare=false;
+  bool grocery = false,
+      medical = false,
+      dairy = false,
+      bakery = false,
+      homekitchen = false,
+      personalcare = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -326,7 +331,7 @@ class _StoreFormState extends State<StoreForm> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text("Bed"),
+                                Text("Medical"),
                                 Expanded(
                                   child: SizedBox(
                                     width: 500,
@@ -351,53 +356,10 @@ class _StoreFormState extends State<StoreForm> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text("dairy"),
+                                Text("Dairy"),
                                 Expanded(
                                   child: SizedBox(
                                     width: 500,
-                                  ),
-                                ),
-                                Container(
-                                  width: 60,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  width: 80,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
                                   ),
                                 ),
                               ],
@@ -419,53 +381,10 @@ class _StoreFormState extends State<StoreForm> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text("bakery"),
+                                Text("Bakery"),
                                 Expanded(
                                   child: SizedBox(
                                     width: 500,
-                                  ),
-                                ),
-                                Container(
-                                  width: 60,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  width: 80,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
                                   ),
                                 ),
                               ],
@@ -487,53 +406,10 @@ class _StoreFormState extends State<StoreForm> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text("home and kitchen"),
+                                Text("Home/Kitchen"),
                                 Expanded(
                                   child: SizedBox(
                                     width: 500,
-                                  ),
-                                ),
-                                Container(
-                                  width: 60,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  width: 80,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
                                   ),
                                 ),
                               ],
@@ -555,53 +431,10 @@ class _StoreFormState extends State<StoreForm> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text("Personal and baby care"),
+                                Text("Personal and Baby Care"),
                                 Expanded(
                                   child: SizedBox(
                                     width: 500,
-                                  ),
-                                ),
-                                Container(
-                                  width: 60,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Container(
-                                  width: 80,
-                                  height: 50,
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      counterText: "",
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 3.0),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.zero,
-                                        borderSide: BorderSide(
-                                            color: Colors.cyan, width: 1.0),
-                                      ),
-                                    ),
                                   ),
                                 ),
                               ],
