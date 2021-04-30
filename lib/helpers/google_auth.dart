@@ -1,3 +1,4 @@
+import 'package:covicare/helpers/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -22,7 +23,8 @@ Future<UserCredential> signInWithGoogle() async {
   final UserCredential authCred = await _auth.signInWithCredential(credential);
 
   final User user = authCred.user;
-
+  print("user");
+  print(user);
   if (user != null) {
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
@@ -30,10 +32,12 @@ Future<UserCredential> signInWithGoogle() async {
     final User currentUser = _auth.currentUser;
     assert(user.uid == currentUser.uid);
 
+    await DatabaseService(uid: user.uid)
+        .updateUserData(user.uid, user.displayName, user.email);
     // Once signed in, return the UserCredential
     return authCred;
   }
-  print('Error signing In');
+
   return null;
 }
 
