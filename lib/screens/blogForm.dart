@@ -7,7 +7,6 @@ class BlogForm extends StatefulWidget {
 }
 
 class _BlogFormState extends State<BlogForm> {
-
   final _blogFormKey = GlobalKey<FormState>();
 
   TextEditingController name = TextEditingController();
@@ -15,13 +14,17 @@ class _BlogFormState extends State<BlogForm> {
   TextEditingController title = TextEditingController();
   TextEditingController content = TextEditingController();
   TextEditingController tags = TextEditingController();
-  String anoy="";
-  bool fame=false;
+  String anoy = "";
+  bool fame = false;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Add Blog"),
+          backgroundColor: Colors.cyan[500],
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
@@ -45,7 +48,10 @@ class _BlogFormState extends State<BlogForm> {
                   controller: name,
                   maxLength: 40,
                   decoration: InputDecoration(
-                    icon: Icon(Icons.person, color: Colors.cyan,),
+                    icon: Icon(
+                      Icons.person,
+                      color: Colors.cyan,
+                    ),
                     labelText: 'Name of the Publisher',
                     labelStyle: TextStyle(
                       color: Colors.cyan,
@@ -56,7 +62,7 @@ class _BlogFormState extends State<BlogForm> {
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.cyan),
                     ),
-                    focusedBorder:OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(color: Colors.cyan, width: 3.0),
                     ),
@@ -72,16 +78,18 @@ class _BlogFormState extends State<BlogForm> {
                   controller: designation,
                   maxLength: 40,
                   decoration: InputDecoration(
-                    icon: Icon(Icons.work, color: Colors.cyan,),
+                    icon: Icon(
+                      Icons.work,
+                      color: Colors.cyan,
+                    ),
                     labelText: "Publisher's Designation",
                     labelStyle: TextStyle(
                       color: Colors.cyan,
                     ),
-
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.cyan),
                     ),
-                    focusedBorder:OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(color: Colors.cyan, width: 3.0),
                     ),
@@ -96,18 +104,16 @@ class _BlogFormState extends State<BlogForm> {
                 TextFormField(
                   controller: title,
                   maxLength: 40,
-
                   decoration: InputDecoration(
                     icon: Icon(Icons.favorite, color: Colors.cyan),
                     labelText: 'Title of the Article',
                     labelStyle: TextStyle(
                       color: Colors.cyan,
                     ),
-
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.cyan),
                     ),
-                    focusedBorder:OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(color: Colors.cyan, width: 3.0),
                     ),
@@ -117,7 +123,7 @@ class _BlogFormState extends State<BlogForm> {
                   height: 10.0,
                 ),
 
-              //  Content Field
+                //  Content Field
 
                 TextFormField(
                   controller: content,
@@ -132,11 +138,10 @@ class _BlogFormState extends State<BlogForm> {
                     labelStyle: TextStyle(
                       color: Colors.cyan,
                     ),
-
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.cyan),
                     ),
-                    focusedBorder:OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(color: Colors.cyan, width: 3.0),
                     ),
@@ -151,19 +156,22 @@ class _BlogFormState extends State<BlogForm> {
                   minLines: 2,
                   maxLines: 3,
                   decoration: InputDecoration(
-                    icon: Icon(Icons.article_outlined, color: Colors.cyan,),
+                    icon: Icon(
+                      Icons.article_outlined,
+                      color: Colors.cyan,
+                    ),
                     fillColor: Colors.grey[300],
                     filled: true,
-                    labelText: 'Add maximum five keywords related to your Article',
+                    labelText:
+                        'Add maximum five keywords related to your Article',
                     labelStyle: TextStyle(
                       fontSize: 15,
                       color: Colors.cyan,
                     ),
-
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.cyan),
                     ),
-                    focusedBorder:OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       borderSide: BorderSide(color: Colors.cyan, width: 3.0),
                     ),
@@ -181,21 +189,23 @@ class _BlogFormState extends State<BlogForm> {
                   },
                 ),
                 new Container(
-                    padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-                    child: new ElevatedButton(
-                      child: const Text('Submit'),
-                      onPressed: () {
-                        // It returns true if the form is valid, otherwise returns false
-                        if (_blogFormKey.currentState.validate()) {
-                          var snackBar = SnackBar(content: Text('Processing Shit'));
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        }
-                      },
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.cyan),
-                          padding: MaterialStateProperty.all(EdgeInsets.all(20)),
-                          textStyle: MaterialStateProperty.all(TextStyle(fontSize: 15))),
-                      ),
+                  padding: const EdgeInsets.only(left: 150.0, top: 40.0),
+                  child: new ElevatedButton(
+                    child: const Text('Submit'),
+                    onPressed: () {
+                      // It returns true if the form is valid, otherwise returns false
+                      if (_blogFormKey.currentState.validate()) {
+                        var snackBar =
+                            SnackBar(content: Text('Processing Shit'));
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      }
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.cyan),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(20)),
+                        textStyle:
+                            MaterialStateProperty.all(TextStyle(fontSize: 15))),
+                  ),
                 ),
               ],
             ),
@@ -205,4 +215,3 @@ class _BlogFormState extends State<BlogForm> {
     );
   }
 }
-

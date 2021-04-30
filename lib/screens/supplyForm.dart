@@ -1,11 +1,17 @@
+import 'package:covicare/helpers/database.dart';
 import 'package:csc_picker/csc_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:covicare/models/supply.dart';
 
 class SupplyForm extends StatefulWidget {
   @override
   _SupplyFormState createState() => _SupplyFormState();
 }
+
+final _auth = FirebaseAuth.instance;
+dynamic user;
 
 class _SupplyFormState extends State<SupplyForm> {
   TextEditingController name = TextEditingController();
@@ -14,12 +20,24 @@ class _SupplyFormState extends State<SupplyForm> {
   TextEditingController address1 = TextEditingController();
   TextEditingController address2 = TextEditingController();
   TextEditingController landmark = TextEditingController();
+  TextEditingController oxygenQuantity = TextEditingController();
+  TextEditingController oxygenAmt = TextEditingController();
+  TextEditingController bedQuantity = TextEditingController();
+  TextEditingController bedAmt = TextEditingController();
+  TextEditingController remQuantity = TextEditingController();
+  TextEditingController remAmt = TextEditingController();
+  TextEditingController favQuantity = TextEditingController();
+  TextEditingController favAmt = TextEditingController();
   String countryValue = '', stateValue = '', cityValue = '';
   bool oxygen = false, favipiravir = false, bed = false, remdesivir = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("Sell/Donate Supplies"),
+          backgroundColor: Colors.cyan[500],
+        ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
@@ -335,6 +353,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 60,
                                   height: 50,
                                   child: TextField(
+                                    controller: oxygenQuantity,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -358,6 +377,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 80,
                                   height: 50,
                                   child: TextField(
+                                    controller: oxygenAmt,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -403,6 +423,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 60,
                                   height: 50,
                                   child: TextField(
+                                    controller: bedQuantity,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -426,6 +447,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 80,
                                   height: 50,
                                   child: TextField(
+                                    controller: bedAmt,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -471,6 +493,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 60,
                                   height: 50,
                                   child: TextField(
+                                    controller: remQuantity,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -494,6 +517,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 80,
                                   height: 50,
                                   child: TextField(
+                                    controller: remAmt,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -539,6 +563,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 60,
                                   height: 50,
                                   child: TextField(
+                                    controller: favQuantity,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -562,6 +587,7 @@ class _SupplyFormState extends State<SupplyForm> {
                                   width: 80,
                                   height: 50,
                                   child: TextField(
+                                    controller: favAmt,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       counterText: "",
@@ -592,6 +618,51 @@ class _SupplyFormState extends State<SupplyForm> {
                         },
                       ),
                     ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    print("Entered");
+                    Supply supply = Supply(
+                      name: name.text,
+                      phone: phone.text,
+                      country: countryValue,
+                      state: stateValue,
+                      city: cityValue,
+                      pincode: pincode.text,
+                      address1: address1.text,
+                      address2: address2.text,
+                      landmark: landmark.text,
+                      oxygen: oxygen,
+                      oxyAmt: int.parse(oxygenAmt.text),
+                      oxyQnt: int.parse(oxygenQuantity.text),
+                      bed: bed,
+                      bedAmt: int.parse(oxygenAmt.text),
+                      bedQnt: int.parse(oxygenQuantity.text),
+                      rem: remdesivir,
+                      remAmt: int.parse(remAmt.text),
+                      remQnt: int.parse(remQuantity.text),
+                      fav: favipiravir,
+                      favAmt: int.parse(favAmt.text),
+                      favQnt: int.parse(favQuantity.text),
+                    );
+                    user = _auth.currentUser;
+                    print("database=================");
+                    await DatabaseService(uid: user.uid)
+                        .updateSupplyData(supply);
+                  },
+                  child: Container(
+                    height: 40,
+                    width: MediaQuery.of(context).size.width - 30,
+                    decoration: BoxDecoration(
+                      color: Colors.cyan[100],
+                      border: Border.all(width: 2, color: Colors.black),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Center(child: Text("Submit")),
                   ),
                 ),
               ],
